@@ -1,3 +1,4 @@
+import { getSession } from 'next-auth/react'
 import Head from 'next/head'
 import Banner from '../components/Banner'
 import Header from "../components/Header"
@@ -33,12 +34,16 @@ export default index
 
 //SSR from API to get data
 export async function getServerSideProps(context){
+
+  const session=await getSession(context);//to show session user before page loads,so that no glitch happens after loading
+
   const products=await fetch("https://fakestoreapi.com/products").then((res)=>res.json());
 
   //to return anything from SSR to our browser , we have to use props
   return{
     props:{
       products,  //as products:products can be written as products 
+      session, //now session already fetched rhega before page loads as we are passing session also
     }
   } 
 }

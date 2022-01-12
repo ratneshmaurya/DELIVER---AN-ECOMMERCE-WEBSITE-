@@ -31,7 +31,7 @@ const CheckoutProducts = ({ id,title,price,rating,description,category,image,has
                 <div className="flex">
                     {Array(rating).fill().map((_,i)=>(<StarIcon key={i} className="h-5 text-yellow-500"></StarIcon>))}
                 </div>
-                <p>₹ {price * 100}</p>
+                <p>₹{(price * 100).toFixed(2)}</p>
                 {
                     hasPrime && (
                         <div className="flex items-center space-x-2">

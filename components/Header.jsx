@@ -65,7 +65,9 @@ const Header = () => {
                         }</div>
                         
                     </div>
-                    <div className="link">
+                    
+                    {/* on click then shift to order page */}
+                    <div onClick={()=> session && router.push("/orders")} className="link">
                         <p>Returns</p>
                         <p className="font-extrabold md:text-sm">& Orders</p>
                     </div>
